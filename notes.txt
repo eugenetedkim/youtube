@@ -1,0 +1,117 @@
+﻿Build a YouTube Clone Application Using React
+ES7 & ES8
+
+
+Main concepts of React:
+* components
+* project structure
+* lifecycle methods
+* state management
+* passing props from parents to child components
+* API requests
+
+
+1. Introduction
+
+
+A YouTube application that fetches data from the YouTube API.
+One big video (the child component where props will be passed to from the parent component) will be displayed where you could play (in the iframe) any of the 5 small video cards to the right of it (the parent component that passes props to the child component) by clicking a video within it.
+
+
+Above, there will be a search bar (handle change method) where you could enter keywords for relevant videos (we need to put all of this info in the state and send it on the API to catch all the data for these videos) and they'll be displayed upon clicking the search button.
+
+
+________________
+
+
+
+
+Open VS code and open the built-in terminal.
+
+
+We'll need a boilerplate application so use create-react-app
+Create install create react app using sudo to install it globally (you can use it anywhere)
+$ npm i -g create-react-app
+
+
+Create a React application:
+$ mkdir [some project name]
+$ cd [some project name]
+$ create-react-app ./
+
+
+create-react-app will create a boilerplate project structure:
+node_modules/
+public/
+src/
+.gitignore
+package-lock.json
+package.json
+README.md
+
+
+Install 2 necessary dependencies: 1) Axios and 2) Material-UI
+$ npm i --save axios @material-ui/core
+
+
+MATERIAL-UI: Pre-build/pre-styled components that you could use
+(ex. button, navbar)
+
+
+It offers Container components so we can keep everything nice and contained, also Grid components which we can use for our cards, and Button components for buttons.
+
+
+Clean the project structure:
+In the VS code, navigate to the explorer and delete the entire SRC directory.
+There is no need for all the boilerplate code.
+
+
+Delete everything except index.html
+
+
+Create an index.js file in a newly created SRC directory
+
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+
+import App from './App';
+
+
+ReactDOM.render(<App />, document.querySelector('#root'));
+
+
+Create an App.js inside the SRC directory so no errors are thrown.
+Code a class-based component that has access to the state.
+Most "smart components" need to be class-based.
+They have a return method, lifecycle methods, and manages the state.
+import React from 'react';
+
+
+class App extends React.Component {
+   render () {
+       return (
+           <h1>YouTube Clone App</h1>
+       )
+   }
+}
+
+
+export default App;
+
+
+This is the same code as above, but it's a "dummy component" which are function-based components.
+const App = () => {
+   return (<h1>YouTube Clone App</h1>);
+}
+
+
+You don't need to use the index.html in the public directory so close that file.
+We're just going to use the src directory.
+All the components will be in the components directory.
+Therefore, make a components directory.
+The components will be imported into App.js and App.js will be imported into Index.js.
+
+
+Now the basic structure is done.
